@@ -24,6 +24,6 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx", "components/NavBarComponent.js"
+    "**/*.tsx", "components/NavBarComponent.js", "next.config.js"
   ]
 }
