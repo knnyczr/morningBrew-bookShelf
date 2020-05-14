@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import fetch from 'isomorphic-unfetch';
 import { GlobalContext } from "../components/GlobalState";
+import fetch from 'isomorphic-unfetch';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 export const MyApp = ({ Component, pageProps }) => {
-    const [ googleData, setGoogleData ] = useState({})
+    const [ googleData, setGoogleData ] = useState({ range:"", values:[] })
 
     useEffect(()  => {
       const fetchData = async () => {

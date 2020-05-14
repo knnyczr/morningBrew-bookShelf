@@ -1,7 +1,10 @@
-import React, { Component, createContext } from 'react';
+import { createContext } from 'react';
 
 export const initialValues = {
-    sheetData: {}
+    sheetData: {
+        range: "", 
+        values: []
+    }
 }
 
 export const GlobalContext = createContext(initialValues)
