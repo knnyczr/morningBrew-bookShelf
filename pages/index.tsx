@@ -8,6 +8,8 @@ import HeroImage from '../components/HeroImage';
 import Month from '../components/Month';
 import BookFeed from '../components/BookFeed';
 
+import styled from 'styled-components';
+
 
 export default function Home(): JSX.Element {
   const { sheetData } = useContext(GlobalContext)
@@ -23,9 +25,11 @@ export default function Home(): JSX.Element {
               <>
                 <NavBarComponent />
                 <HeroImage />
-                <Year />
-                <Month />
-                <BookFeed />
+                <Wrapper>
+                  <Year />
+                  <Month />
+                  <BookFeed />
+                </Wrapper>
               </>
             ) : (
               <h1>loading...</h1>
@@ -35,3 +39,8 @@ export default function Home(): JSX.Element {
       </div>
   )
 }
+
+const Wrapper = styled.div`
+  width: 90%;
+  margin: 0 auto; 
+`;

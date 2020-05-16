@@ -1,13 +1,14 @@
 import React from 'react';
+import styled from 'styled-components';
 import { Nav, Navbar } from 'react-bootstrap'
 
 export default function NavbarComponent() {
   return (
       <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+      <Navbar.Brand href="#home"><Logo src="https://www.morningbrew.com/packs/media/images/daily-logo-30031d0d494b337d33e3a8faacb388b1.png" /></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav" className="justify-content-end">
-        <Nav className="mr-auto">
+      <Navbar.Collapse id="basic-navbar-nav" >
+        <Nav className="justify-content-end">
           <Nav.Link href="#home">Home</Nav.Link>
           <Nav.Link href="#link">Link</Nav.Link>
         </Nav>
@@ -15,3 +16,7 @@ export default function NavbarComponent() {
     </Navbar>
   );
 }
+
+const Logo = styled.img`
+  height: 30px;
+`;

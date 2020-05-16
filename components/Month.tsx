@@ -1,6 +1,8 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../components/GlobalState'
 
+import styled from 'styled-components'
+
 export default function Month() {
     const { sheetData } = useContext(GlobalContext)
 
@@ -18,11 +20,18 @@ export default function Month() {
             {
                 sheetData.values[1] && (
                     <>
-                        <h1>{getMonth()}</h1>
+                        <Title>{getMonth()} ▾ </Title>
                         <p>{sheetData.values[1][0]}</p>
+                        <p>{sheetData.values[1][1]}</p>
                     </>
                 )
             }
+            <div className="fb-share-button" 
+                data-href="https://www.morningbrew.com/daily/stories/2020/04/22/brews-bookshelf-11-favorite-personal-development-reads?utm_source=morning_brew">
+            </div>
         </>
     )
 }
+const Title = styled.h1`
+    font-family: 'Literata'; 
+`;

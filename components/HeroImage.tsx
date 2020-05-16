@@ -28,7 +28,8 @@ const Image = styled.img`
 const Hero = styled.div`
     width: 100%;
     height: 30vh;
-    display: flex; 
+    display: flex;
+    margin-bottom: 10%; 
 `;
 
 const Title = styled.h1`
