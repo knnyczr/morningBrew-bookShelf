@@ -1,9 +1,11 @@
 import styled from 'styled-components';
+import './scss/year.scss'
 
-const CurrentYear = styled.h2`
-    font-family: "Gilroy-bold";
-    font-size: 12pt; 
-`;
+//this is .year in scss
+// const CurrentYear = styled.h2`
+//     font-family: "Gilroy-bold";
+//     font-size: 12pt; 
+// `;
 
 export default function Year(props){
     return (
@@ -11,6 +13,6 @@ export default function Year(props){
         // OR have different calls onto different sheets, 
             // then pass the objKey which will be that year
             // value of that key will be the sheet ID to be fed onto API
-        <CurrentYear>2020</CurrentYear>
+        <div className="year">2020</div>
     )
 }

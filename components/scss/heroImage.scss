@@ -1,0 +1,16 @@
+.hero-image {
+    color: red; 
+    width: 100%; 
+    h1 { 
+        color: white; 
+        font-size: 3em; 
+        position: absolute;
+        font-family: "Literata";
+        margin: 10% 0 0 10%;
+    }
+    img {
+        width: 100%; 
+        height: 40vh; 
+        background-size: cover; 
+    }
+}

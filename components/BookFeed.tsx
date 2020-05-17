@@ -1,27 +1,33 @@
 import { useContext, useState, useEffect } from 'react';
 import { GlobalContext } from '../components/GlobalState'
-import styled from 'styled-components'
+// import styled from 'styled-components'
 
-import Cards from './Cards'
+import './scss/bookfeed.scss'
 
-let Wrapper = styled.div`
-    /* display: grid; 
-    grid-template-columns: 1fr 1fr;  */
-`;
+import Book from './Book'
 
-let GenreList = styled.ul`
-    display: flex; 
-    margin: 30px auto;
-    justify-content: center;
-    font-size: 12pt; 
-`;
+type Book = {
+   
+}
+// this is book-feed in scss file
+// let Wrapper = styled.div` 
+//     /* display: grid; 
+//     grid-template-columns: 1fr 1fr;  */
+// `;
 
-let Genre = styled.li`
-    list-style-type: none;
-    margin-right: 10%; 
-    text-decoration: none; 
-    color: red; 
-`;
+// let GenreList = styled.ul`
+//     display: flex; 
+//     margin: 30px auto;
+//     justify-content: center;
+//     font-size: 12pt; 
+// `;
+
+// let Genre = styled.li`
+//     list-style-type: none;
+//     margin-right: 10%; 
+//     text-decoration: none; 
+//     color: red; 
+// `;
 
 
 export default function BookFeed(): JSX.Element{
@@ -56,9 +62,22 @@ export default function BookFeed(): JSX.Element{
         
 
     }, [])
+
+    let makeBooks = (bByGenres, gen) => {
+    console.log('welcome makebooks', bByGenres, gen);
+        return gen.map((catagory) => (
+            bByGenres[catagory]!== undefined &&
+            <>
+                <h2>{catagory}({bByGenres[catagory].length})</h2>
+                <Book bookData={bByGenres[catagory]} />
+           </>
+        ))
+    }
+
     return(
-        <Wrapper>
-            <GenreList>
+        <div>
+            {/* <h1>bookfeedhere</h1> */}
+            {/* <GenreList>
                 {console.log(booksByGenres)}                
                 {
                     // genres.map((genre, index) => {
@@ -71,13 +90,23 @@ export default function BookFeed(): JSX.Element{
                             <li key={index}>{genre.toUpperCase()}({booksByGenres[genre].length})</li>
                         ))
                 }
-            </GenreList>
+            </GenreList> */}
             {
-                books.map((book, index) => (
-                        <Cards key={index} bookData={book} />
-                )) 
-                // && console.log(booksByGenres)
+                // booksByGenres.map((catagory, index) => {
+                //     return <h1>catagory</h1>
+                // }) && console.log('something')
+               
+                    // Object.keys(booksByGenres).map((catagory, index) => {
+                    //     <h1>{catagory}</h1>
+                    // }) &&  console.log(Object.keys(booksByGenres)
+                
             }
-        </Wrapper>
+            <div className="bookfeed">
+                {
+                    genres.length !== undefined &&
+                    makeBooks(booksByGenres, genres)
+                }
+            </div>
+        </div>
     )
 }

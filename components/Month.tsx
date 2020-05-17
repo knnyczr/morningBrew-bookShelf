@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { GlobalContext } from '../components/GlobalState'
 
-import styled from 'styled-components'
+// import styled from 'styled-components'
+import './scss/month.scss'
 
 export default function Month() {
     const { sheetData } = useContext(GlobalContext)
@@ -16,11 +17,11 @@ export default function Month() {
         // will need to split or splice by ! character to get the month out
         
         // will need to think of ways to split the monthy description for the enter key
-        <>
+        <div className="month">
             {
                 sheetData.values[1] && (
                     <>
-                        <Title>{getMonth()} ▾ </Title>
+                        <h1>{getMonth()}</h1>
                         <p>{sheetData.values[1][0]}</p>
                         <p>{sheetData.values[1][1]}</p>
                     </>
@@ -29,9 +30,9 @@ export default function Month() {
             <div className="fb-share-button" 
                 data-href="https://www.morningbrew.com/daily/stories/2020/04/22/brews-bookshelf-11-favorite-personal-development-reads?utm_source=morning_brew">
             </div>
-        </>
+        </div>
     )
 }
-const Title = styled.h1`
-    font-family: 'Literata'; 
-`;
+// const Title = styled.h1`
+//     font-family: 'Literata'; 
+// `;

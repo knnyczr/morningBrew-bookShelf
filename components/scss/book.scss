@@ -1,0 +1,19 @@
+.collection {
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    div { 
+        margin: 0 .5em 2em;
+        img { 
+            margin: 0 auto; 
+            width: 100%; 
+            background-size: cover;
+        }
+        h3{
+            font-family: 'Literata';
+            font-size: 1.875em;
+        }
+        h4{
+            font-size: 1.5em;
+        }
+    }
+}
