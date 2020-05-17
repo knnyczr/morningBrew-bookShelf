@@ -3,5 +3,7 @@
 Built in:
  - Next.js
  - Typescript
- - Styled Components
+ - React-Bootstrap
+ - <s>Styled Components </s>
+ - SCSS
   
