@@ -13,7 +13,6 @@ import styled from 'styled-components';
 
 export default function Home(): JSX.Element {
   const { sheetData } = useContext(GlobalContext)
-  console.log(sheetData)
   return (
       <div className="container">
         <Head>
