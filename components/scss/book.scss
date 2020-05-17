@@ -6,7 +6,7 @@
         img { 
             margin: 0 auto; 
             width: 100%; 
-            background-size: cover;
+            // background-size: cover;
         }
         h3{
             font-family: 'Literata';
@@ -14,6 +14,14 @@
         }
         h4{
             font-size: 1.5em;
+        }
+        a {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+        }
+        button {
+            margin-top: 5px; 
+            font-size: 1.275em;
         }
     }
 }

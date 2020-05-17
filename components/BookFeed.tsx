@@ -4,11 +4,8 @@ import { GlobalContext } from '../components/GlobalState'
 
 import './scss/bookfeed.scss'
 
-import Book from './Book'
+import Collection from './Collection'
 
-type Book = {
-   
-}
 // this is book-feed in scss file
 // let Wrapper = styled.div` 
 //     /* display: grid; 
@@ -35,7 +32,7 @@ export default function BookFeed(): JSX.Element{
     const [books, setBooks] = useState([ ])
     const [genres, setGenres] = useState([" "])
     const [booksByGenres, setBooksByGenres] = useState({})
-
+    
     useEffect(():void => {
         // This is to slicing only the books out of the google API 
         const books = [...sheetData.values.slice(3, 17)]
@@ -64,13 +61,12 @@ export default function BookFeed(): JSX.Element{
     }, [])
 
     let makeBooks = (bByGenres, gen) => {
-    console.log('welcome makebooks', bByGenres, gen);
-        return gen.map((catagory) => (
+        return gen.map((catagory, index) => (
             bByGenres[catagory]!== undefined &&
-            <>
-                <h2>{catagory}({bByGenres[catagory].length})</h2>
-                <Book bookData={bByGenres[catagory]} />
-           </>
+                <>
+                    <h2 key={'h2' + index}>{catagory}({bByGenres[catagory].length})</h2>
+                    <Collection key={'book' + index + catagory} bookData={bByGenres[catagory]} />
+                </>
         ))
     }
 
@@ -91,16 +87,6 @@ export default function BookFeed(): JSX.Element{
                         ))
                 }
             </GenreList> */}
-            {
-                // booksByGenres.map((catagory, index) => {
-                //     return <h1>catagory</h1>
-                // }) && console.log('something')
-               
-                    // Object.keys(booksByGenres).map((catagory, index) => {
-                    //     <h1>{catagory}</h1>
-                    // }) &&  console.log(Object.keys(booksByGenres)
-                
-            }
             <div className="bookfeed">
                 {
                     genres.length !== undefined &&
