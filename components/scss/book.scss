@@ -15,6 +15,16 @@
         h4{
             font-size: 1.5em;
         }
+        .collapsible {
+            padding-top: 10px;
+            height: 0rem;
+            overflow: hidden;
+            transition: height .35s linear;
+        }
+        .active {
+            transition: height .35s linear;
+            height: 15rem;
+        }
         a {
             font-size: 1.5em;
             margin-bottom: 5px;
@@ -23,5 +33,11 @@
             margin-top: 5px; 
             font-size: 1.275em;
         }
+    }
+}
+
+@media (min-width: 768px){
+    .collection {
+         grid-template-columns: repeat(3, 1fr);
     }
 }
