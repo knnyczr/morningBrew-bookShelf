@@ -19,9 +19,11 @@ export default function Book({book, index}: Props):JSX.Element {
             <img src={book[3]}/>
             <h3>{book[0]}</h3>
             <h4>{book[1]}</h4>
-            <p className={'collapsible' + (isActive ? ' active': '')}>
-                {book[2]}
-            </p>
+            <div>
+                <p className={'collapsible' + (isActive ? ' active': '')}>
+                    {book[2]}
+                </p>
+            </div>
             <a href={book[4]} target="_blank">buy now →</a>
             <Button onClick={() => openDescription()} className="btn-block">
                 {

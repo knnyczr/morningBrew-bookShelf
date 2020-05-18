@@ -14,7 +14,9 @@ const HeroImage = () => {
                 sheetData.values[1] && (
                     <>
                         <h1>bookShelf</h1>
-                        <img src={sheetData.values[1][6]} />
+                        <div style={{
+                            backgroundImage: `url(${sheetData.values[1][6]})`}}>
+                        </div>
                     </>
                 )
             }
