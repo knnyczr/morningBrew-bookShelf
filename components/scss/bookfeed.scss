@@ -1,10 +1,24 @@
 .bookfeed{
-    width: 100%; 
-    // display: flex; 
+    // width: 100%;  
     margin: 0 auto; 
     h2{
         margin-top: 1em;
         // letter-spacing: 4px; 
         font-family: 'Gilroy-Medium';
+    }
+}
+
+@media (min-width: 1000px){
+    .bookfeed{
+        display: flex; 
+        justify-content: center;
+        a {
+            font-size: 1.75em;
+            margin-top: 2%;
+            margin-right: 2%;
+            font-family: 'Gilroy-Bold', 'Hevetica-bold', sans-serif;
+            color: gray;
+            cursor: pointer;
+        }
     }
 }

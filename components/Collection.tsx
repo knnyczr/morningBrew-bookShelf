@@ -7,15 +7,13 @@ type Props = {
     bookData: string[], 
 }
 
-export default function Collection({ bookData, }: Props):JSX.Element {
-
-    console.log(bookData)
+export default function Collection({ bookData }: Props):JSX.Element {
     return(
         <div className="collection">
             {
                 bookData !== undefined &&
                 bookData.map((book, index) => (
-                    <Book book={book} index={index}/>
+                    <Book key={'collection' + book + index } book={book} index={index}/>
                 ))
             }
         </div>

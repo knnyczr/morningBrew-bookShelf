@@ -4,7 +4,8 @@ import { GlobalContext } from '../components/GlobalState'
 
 import './scss/bookfeed.scss'
 
-import Collection from './Collection'
+import Collection from './Collection';
+import BookDesktop from './BookDesktop';
 
 // this is book-feed in scss file
 // let Wrapper = styled.div` 
@@ -37,8 +38,6 @@ export default function BookFeed(): JSX.Element{
         // This is to slicing only the books out of the google API 
         const books = [...sheetData.values.slice(3, 17)]
         setBooks(books)
-
-        console.log(books)
         // this is to set all the uniques genres to the state
         const onlyUniques = (value, indx, array) => array.indexOf(value) === indx; 
         const allOfTheUniqueGenres = sheetData.values.slice(3, 17).map(book => book[5]).filter(onlyUniques);
@@ -60,14 +59,27 @@ export default function BookFeed(): JSX.Element{
 
     }, [])
 
-    let makeBooks = (bByGenres, gen) => {
-        return gen.map((catagory, index) => (
-            bByGenres[catagory]!== undefined &&
+    const makeBooks = (bByGenres, genres) => {
+        return genres.map((catagory, index) => (
+            bByGenres[catagory] !== undefined &&
                 <>
-                    <h2 key={'h2' + index}>{catagory}({bByGenres[catagory].length})</h2>
-                    <Collection key={'book' + index + catagory} bookData={bByGenres[catagory]} />
+                    <h2 key={'bookfeed-h2' + catagory + index}>{catagory.charAt(0).toUpperCase() + catagory.slice(1)} ({bByGenres[catagory].length})</h2>
+                    <Collection key={'bookfeed-collections' + index + catagory} bookData={bByGenres[catagory]} />
                 </>
         ))
+    }
+
+    const makeDesktopBooks = (bByGenres, genres, books) => {
+        return (
+            <div className="bookfeed">
+                {genres.map((catagory, index) => (
+                bByGenres[catagory] !== undefined &&
+                    <>
+                        <a>{catagory} ({bByGenres[catagory].length}) </a>
+                    </>
+                ))}
+            </div>
+        )
     }
 
     return(
@@ -87,12 +99,18 @@ export default function BookFeed(): JSX.Element{
                         ))
                 }
             </GenreList> */}
-            <div className="bookfeed">
-                {
-                    genres.length !== undefined &&
-                    makeBooks(booksByGenres, genres)
-                }
-            </div>
+                <>
+                    {
+                        genres.length !== undefined &&
+                            window.innerWidth < 1000 
+                            ? makeBooks(booksByGenres, genres)
+                            : <BookDesktop 
+                                booksByGenres={booksByGenres}
+                                genres={genres}
+                                books={books}
+                                />
+                    }
+                </>
         </div>
     )
 }

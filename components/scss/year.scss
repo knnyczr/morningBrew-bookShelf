@@ -3,5 +3,12 @@
     font-size: 1em; 
     color: #1D7FF2; 
     // border: solid red 1px;
-    margin: 3% 0 0 2%; 
+    margin: 3% 0 2%; 
+}
+
+@media (min-width: 1000px){
+    .year{
+        margin: 2% 0 .5%; 
+        font-size: 1.75em;
+    }
 }
